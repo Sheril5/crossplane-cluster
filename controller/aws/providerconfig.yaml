@@ -1,0 +1,11 @@
+apiVersion: aws.crossplane.io/v1alpha1
+kind: ProviderConfig
+metadata:
+  name: aws-provider
+spec:
+  credentials:
+    source: Secret
+    secretRef:
+      namespace: crossplane-system
+      name: aws-creds
+  region: us-east-1 # Replace with the region of your choice

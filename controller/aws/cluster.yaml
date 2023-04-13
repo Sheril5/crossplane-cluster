@@ -1,0 +1,11 @@
+apiVersion: eks.aws.crossplane.io/v1alpha1
+kind: Cluster
+metadata:
+  name: my-eks-cluster
+spec:
+  region: us-east-1 # Replace with the region of your choice
+  version: "1.21"
+  nodeGroup:
+    name: my-eks-nodegroup
+    instanceType: t3.small
+    desiredCapacity: 2

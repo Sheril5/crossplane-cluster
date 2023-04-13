@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-eks-cluster
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Sheril5/crossplane-cluster.git # Replace with your Git repository URL
+    path: controller/crossplane-cluster # Replace with the path to your cluster configuration YAML file
+    targetRevision: HEAD
+  destination:
+    server: incluster # Replace with your Kubernetes API server URL
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
